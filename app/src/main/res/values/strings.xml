@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Android Project Notification App</string>
+    <string name="logIn">Log In</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="submit">Submit</string>
+    <string name="forgotPassword">  Forgot Password? Click Here</string>
+    <string name="newUser">  New User? Click Here</string>
+    <string name="showPassword">Show Password</string>
+    <string name="hidePassword">Hide Password</string>
+    <string name="forgotPassword_Title">Forgot Password</string>
+    <!--<string name="email_subject_login">Alert Login</string>
+    <string name="email_text_login_one">Hello, \n Your account was logged in for Notification App from</string>
+    <string name="email_text_login_two"> .If it was not you please contact support team! Please ignore this email if you made this activity.</string>
+    <string name="email_text_best_regards">Best Regards</string>
+    <string name="email_text_app_team">Notification App Team</string>
+    <string name="email_subject_forgot_password">Reset Password</string>
+    <string name="email_text_forgot_password_one">Hello, \n Please click link below to reset your password</string>
+    <string name="email_text_forgot_password_two">Please ignore this email if you dint requested to reset password</string>-->
+</resources>
