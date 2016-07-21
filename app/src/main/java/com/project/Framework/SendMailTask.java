@@ -16,7 +16,7 @@ import android.util.Log;
 public class SendMailTask extends AsyncTask
 {
     // Progress Dialog
-    private ProgressDialog statusDialog;
+    //private ProgressDialog statusDialog;
 
     // activity from which this class instance is created
     private Activity sendMailActivity;
@@ -33,11 +33,11 @@ public class SendMailTask extends AsyncTask
      */
     protected void onPreExecute()
     {
-        statusDialog = new ProgressDialog(sendMailActivity);
+        /*statusDialog = new ProgressDialog(sendMailActivity);
         statusDialog.setMessage("Getting ready...");
         statusDialog.setIndeterminate(false);
         statusDialog.setCancelable(false);
-        statusDialog.show();
+        statusDialog.show();*/
     }
 
     /**
@@ -47,6 +47,10 @@ public class SendMailTask extends AsyncTask
     {
         try
         {
+            /*if(sendMailActivity.isFinishing())
+            {
+                statusDialog.dismiss();
+            }*/
             Log.i("SendMailTask", "About to instantiate GMail...");
             //publishProgress("Processing input....");
             NotificationEmail androidEmail = new NotificationEmail(args[0].toString(),
@@ -56,6 +60,7 @@ public class SendMailTask extends AsyncTask
             androidEmail.createEmailMessage();
             publishProgress(Constants.SEND_EMAIL);
             androidEmail.sendEmail();
+            //statusDialog.dismiss();
             //publishProgress("Email Sent.");
             Log.i("SendMailTask", "Mail Sent.");
         }
@@ -73,7 +78,11 @@ public class SendMailTask extends AsyncTask
      */
     public void onProgressUpdate(Object... values)
     {
-        statusDialog.setMessage(values[0].toString());
+        /*statusDialog.setMessage(values[0].toString());
+        if(sendMailActivity.isFinishing())
+        {
+            statusDialog.dismiss();
+        }*/
     }
 
     /**
@@ -82,6 +91,6 @@ public class SendMailTask extends AsyncTask
      */
     public void onPostExecute(Object result)
     {
-        statusDialog.dismiss();
+        //statusDialog.dismiss();
     }
 }

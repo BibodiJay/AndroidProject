@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.Toolbar
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/tToolbar"
+    android:layout_height="?attr/actionBarSize"
+    android:layout_width="match_parent"
+    android:gravity="top|start"
+    android:background="?attr/colorPrimary"
+    app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+    app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+    <com.joooonho.SelectableRoundedImageView
+        android:id="@+id/customTitle_userProfilePic_id"
+        android:layout_width="40dp"
+        android:layout_height="?attr/actionBarSize"
+        android:src="@drawable/photo"
+        app:sriv_border_color="#FFCC00"
+        app:sriv_border_width="2dp"
+        app:sriv_oval="true"
+        android:layout_gravity="left"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:paddingLeft="10dp"
+        android:id="@+id/ActionBarTitle_text_id"
+        android:gravity="center_vertical" />
+
+</android.support.v7.widget.Toolbar>
+
+

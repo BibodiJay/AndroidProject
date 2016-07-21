@@ -53,5 +53,50 @@ public class Constants
             "\n Must contain one upper case character" +
             "\n Must contain one special character from @, #, $, %";
 
+    // SEND_EMAIL string defines text which will be used while sending email in progress dialog
     public static final String SEND_EMAIL = "Sending Email...";
+
+    // EMAIL_TEXT_ACCOUNT_CREATED string define's text to be sent to user in account creation email
+    public static final String EMAIL_TEXT_ACCOUNT_CREATED = "Hello, \n\nYour account is created successfully for Notification App. For any queries please contact system administrator!";
+
+    // USER_PREFERENCES string defines file name which will be used to store user data
+    public static final String USER_PREFERENCES = "UserPreferences" ;
+
+    // PREFERENCES_FIRST_NAME string defines element name in sharedPref file
+    public static final String PREFERENCES_FIRST_NAME = "firstName";
+
+    // PREFERENCES_LAST_NAME string defines element name in sharedPref file
+    public static final String PREFERENCES_LAST_NAME = "lastName";
+
+    // PREFERENCES_EMAIL_ADDRESS string defines element name in sharedPref file
+    public static final String PREFERENCES_EMAIL_ADDRESS = "emailAddress";
+
+    // PREFERENCES_PASSWORD string defines element name in sharedPref file
+    public static final String PREFERENCES_PASSWORD = "password";
+
+    // PREFERENCES_IMAGE_STRING string defines element name in sharedPref file
+    public static final String PREFERENCES_IMAGE_STRING = "imageString";
+
+    // LOGGED_IN string defines text which is displayed when user logs in successfully
+    public static final String LOGGED_IN = "Successfully Logged In";
+
+    // ACCOUNT_CREATED string defines text which will be used as subject in email when user creation email will be sent to user.
+    public static final String ACCOUNT_CREATED = "Account Created";
+
+/*    public static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/notificationapp";
+
+    public static final String DB_USER_NAME = "root";
+
+    public static final String DB_PASSWORD = "admin@12345";
+
+    public static final String JDBC_DRIVER = "com.mysql.jdbc.Driver";*/
+
+    // to log data
+    public static final String TAG = "GalleryUtil";
+
+    // SELECTED_IMAGE_PATH_PROFILE_PIC string defines text which will store path from which image is selected and cropped
+    public static final String SELECTED_IMAGE_PATH_PROFILE_PIC = "picturePath";
+
+    // APP_NAME string defines name of this application
+    public static final String APP_NAME = "Notification App";
 }

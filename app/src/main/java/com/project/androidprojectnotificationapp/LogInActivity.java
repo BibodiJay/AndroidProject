@@ -1,6 +1,9 @@
 package com.project.androidprojectnotificationapp;
 
+import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.text.method.HideReturnsTransformationMethod;
@@ -11,6 +14,7 @@ import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.project.Framework.Constants;
 import com.project.Framework.NotificationUtils;
@@ -35,6 +39,8 @@ public class LogInActivity extends AppCompatActivity implements CompoundButton.O
     TextView forgotPasswordTextView;
     TextView newUserTextView;
     CheckBox showHidePasswordCheckbox;
+    SharedPreferences sharedPreferences;
+    ProgressDialog statusDialog;
 
     /**
      * This method will initialize login activity
@@ -45,6 +51,25 @@ public class LogInActivity extends AppCompatActivity implements CompoundButton.O
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
+
+        // get sharedPreference created on user device
+        sharedPreferences = getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE);
+
+        // get email address from shared preference
+        String emailAddress = sharedPreferences.getString(Constants.PREFERENCES_EMAIL_ADDRESS,null);
+
+        // get password from shared preference
+        String password = sharedPreferences.getString(Constants.PREFERENCES_PASSWORD,null);
+
+        // if email address and password is present than go to new activity
+        if(emailAddress!=null && !emailAddress.isEmpty() && password!=null && !password.isEmpty())
+        {
+            // start Home Activity i.e activity after login
+            startActivity(new Intent(this,HomeActivity.class));
+
+            // finishes current activity
+            finish();
+        }
 
         //setting view for login activity
         setContentView(R.layout.login_activity);
@@ -130,7 +155,7 @@ public class LogInActivity extends AppCompatActivity implements CompoundButton.O
      */
     public void onClick(View view)
     {
-        // switch case based on type of id user interacted with
+        // switch case based on type of view id user interacted with
         switch (view.getId())
         {
             // case when user clicks submit button
@@ -173,6 +198,12 @@ public class LogInActivity extends AppCompatActivity implements CompoundButton.O
                 // invokes method in NotificationUtils Class to validate if password is valid
                 if(NotificationUtils.passwordValidate(password,getApplicationContext()))
                 {
+                    statusDialog = new ProgressDialog(this);
+                    statusDialog.setMessage("Getting ready...");
+                    statusDialog.setIndeterminate(false);
+                    statusDialog.setCancelable(false);
+                    statusDialog.show();
+
                     // convert string to list of email address if any
                     List<String> toEmailList = Arrays.asList(emailAddress.split("\\s*,\\s*"));
 
@@ -184,6 +215,18 @@ public class LogInActivity extends AppCompatActivity implements CompoundButton.O
                     {
                         // send email asynchronously to email address entered by user
                         new SendMailTask(LogInActivity.this).execute(Constants.EMAIL_ADDRESS, Constants.PASSWORD, toEmailList, Constants.EMAIL_SUBJECT_LOGIN, emailBody);
+
+                        SharedPreferences.Editor editor = sharedPreferences.edit();
+
+                        // TO DO : fetch first name,last name and image from database and save in shared preferences
+
+                        /*editor.putString(Constants.PREFERENCES_FIRST_NAME, firstName);
+                        editor.putString(Constants.PREFERENCES_LAST_NAME, lastName);*/
+                        editor.putString(Constants.PREFERENCES_EMAIL_ADDRESS, emailAddress);
+                        editor.putString(Constants.PREFERENCES_PASSWORD,password);
+                        editor.commit();
+                        Toast.makeText(this,Constants.LOGGED_IN,Toast.LENGTH_LONG).show();
+                        statusDialog.dismiss();
                     }
                     catch (Exception e)
                     {
@@ -208,7 +251,8 @@ public class LogInActivity extends AppCompatActivity implements CompoundButton.O
      */
     private void callNewUserActivity()
     {
-
+        //start activity for sign up
+        startActivity(new Intent(this,NewUserSignUpActivity.class));
     }
 
     /**
@@ -217,6 +261,16 @@ public class LogInActivity extends AppCompatActivity implements CompoundButton.O
     protected void onResume()
     {
         super.onResume();
+
+        sharedPreferences = getSharedPreferences(Constants.USER_PREFERENCES, Context.MODE_PRIVATE);
+        String emailAddress = sharedPreferences.getString(Constants.PREFERENCES_EMAIL_ADDRESS,null);
+        String password = sharedPreferences.getString(Constants.PREFERENCES_PASSWORD,null);
+
+        if(emailAddress!=null && !emailAddress.isEmpty() && password!=null && !password.isEmpty())
+        {
+            //startActivity(new Intent(this,HomeActivity.class));
+            finish();
+        }
 
         //empty emailAddress editText field
         emailAddressEditText.setText("");

@@ -3,6 +3,7 @@
     package="com.project.androidprojectnotificationapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -20,6 +21,11 @@
         </activity>
         <activity android:name=".LogInActivity"/>
         <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".NewUserSignUpActivity" />
+        <activity android:name=".CropImage"/>
+        <activity android:name=".GalleryUtil"/>
+        <activity android:name=".HomeActivity"
+            android:theme="@style/NoActionBar"/>
     </application>
 
 </manifest>

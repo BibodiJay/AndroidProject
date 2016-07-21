@@ -12,4 +12,8 @@
         <item name="android:windowBackground">@drawable/splash_backgroud</item>
     </style>
 
+    <style name="NoActionBar" parent="Theme.AppCompat.NoActionBar">
+
+    </style>
+
 </resources>

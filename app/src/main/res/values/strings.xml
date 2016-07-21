@@ -9,12 +9,14 @@
     <string name="showPassword">Show Password</string>
     <string name="hidePassword">Hide Password</string>
     <string name="forgotPassword_Title">Forgot Password</string>
-    <!--<string name="email_subject_login">Alert Login</string>
-    <string name="email_text_login_one">Hello, \n Your account was logged in for Notification App from</string>
-    <string name="email_text_login_two"> .If it was not you please contact support team! Please ignore this email if you made this activity.</string>
-    <string name="email_text_best_regards">Best Regards</string>
-    <string name="email_text_app_team">Notification App Team</string>
-    <string name="email_subject_forgot_password">Reset Password</string>
-    <string name="email_text_forgot_password_one">Hello, \n Please click link below to reset your password</string>
-    <string name="email_text_forgot_password_two">Please ignore this email if you dint requested to reset password</string>-->
+    <string name="newuser_signup_save">Save</string>
+    <string name="newuser_signup_cancel">Cancel</string>
+    <string name="newuser_signup_firstName">Enter First Name</string>
+    <string name="newuser_signup_lastName">Enter Last Name</string>
+    <string name="newuser_signup_emailAddress">Enter Email Address</string>
+    <string name="newuser_signup_enterPassword">Enter Password</string>
+    <string name="newuser_signup_showPassword">Show Password</string>
+    <string name="newuser_signup_hidePassword">Hide Password</string>
+    <string name="newuser_signup_loadPicture">Load Picture</string>
+    <string name="sign_up">Sign Up</string>
 </resources>

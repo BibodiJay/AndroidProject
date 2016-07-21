@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:id="@+id/newuser_footer">
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/newuser_signup_save"
+            android:id="@+id/new_user_save_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+
+        <Button
+            style="?android:attr/buttonStyleSmall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/newuser_signup_cancel"
+            android:id="@+id/newuser_cancel_button"
+            android:layout_below="@+id/new_user_save_button"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_margin="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+    
+    <ScrollView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/newuser_footer"
+        android:id="@+id/newuser_scrollview">
+        <RelativeLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <com.joooonho.SelectableRoundedImageView
+                android:id="@+id/userphoto"
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:layout_marginTop="22dp"
+                android:layout_gravity="center"
+                android:scaleType="centerCrop"
+                android:src="@drawable/photo"
+                app:sriv_border_color="#FFCC00"
+                app:sriv_border_width="2dp"
+                app:sriv_oval="true"
+                android:layout_alignParentTop="true"
+                android:layout_centerHorizontal="true" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:layout_below="@+id/userphoto"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/newuser_signup_firstName"
+                android:ems="10"
+                android:id="@+id/newuser_firstName_Id" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPersonName"
+                android:layout_marginLeft="10dp"
+                android:layout_below="@+id/newuser_firstName_Id"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/newuser_signup_lastName"
+                android:ems="10"
+                android:id="@+id/newuser_lastName_Id" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/newuser_lastName_Id"
+                android:inputType="textEmailAddress"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:hint="@string/newuser_signup_emailAddress"
+                android:ems="10"
+                android:id="@+id/newuser_emailAddress_Id" />
+
+            <EditText
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/newuser_signup_enterPassword"
+                android:layout_below="@+id/newuser_emailAddress_Id"
+                android:inputType="textPassword"
+                android:ems="10"
+                android:id="@+id/newuser_password_id"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"/>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/newuser_signup_showPassword"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="15dp"
+                android:id="@+id/newuser_checkbox"
+                android:checked="false"
+                android:layout_alignTop="@+id/newuser_password_id"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentEnd="true" />
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
