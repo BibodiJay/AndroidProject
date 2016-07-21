@@ -227,6 +227,12 @@ public class LogInActivity extends AppCompatActivity implements CompoundButton.O
                         editor.commit();
                         Toast.makeText(this,Constants.LOGGED_IN,Toast.LENGTH_LONG).show();
                         statusDialog.dismiss();
+
+                        // starting new activity with target activity as HomeActivity
+                        startActivity(new Intent(this,HomeActivity.class));
+
+                        // finishes the current activity
+                        finish();
                     }
                     catch (Exception e)
                     {

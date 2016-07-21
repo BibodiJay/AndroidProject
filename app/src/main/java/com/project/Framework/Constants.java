@@ -83,6 +83,9 @@ public class Constants
     // ACCOUNT_CREATED string defines text which will be used as subject in email when user creation email will be sent to user.
     public static final String ACCOUNT_CREATED = "Account Created";
 
+    // FORGOT_PASSWORD_EMAIL_SENT string defines text which will be displayed on screen that email is sent to reset password.
+    public static final String FORGOT_PASSWORD_EMAIL_SENT = "Email Sent! Please reset your password";
+
 /*    public static final String DB_URL = "jdbc:mysql://127.0.0.1:3306/notificationapp";
 
     public static final String DB_USER_NAME = "root";

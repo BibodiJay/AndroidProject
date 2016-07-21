@@ -249,7 +249,7 @@ public class NewUserSignUpActivity extends AppCompatActivity implements View.OnC
                     try
                     {
                         // send email asynchronously to email address entered by user
-                        new SendMailTask(NewUserSignUpActivity.this).execute(Constants.EMAIL_ADDRESS, Constants.PASSWORD, toEmailList, Constants.EMAIL_SUBJECT_LOGIN, emailBody);
+                        new SendMailTask(NewUserSignUpActivity.this).execute(Constants.EMAIL_ADDRESS, Constants.PASSWORD, toEmailList, Constants.ACCOUNT_CREATED, emailBody);
 
                         // creating sharedPreference for storing user data
                         SharedPreferences.Editor editor = sharedPreferences.edit();

@@ -124,10 +124,13 @@ public class NotificationUtils
      */
     public static ImageView decodeStringToImage(String encodedImageString,ImageView ivsavedphoto)
     {
-        String base=encodedImageString;
-        byte[] imageAsBytes = Base64.decode(base.getBytes(), Base64.DEFAULT);
-        ivsavedphoto.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
-        ivsavedphoto.setScaleType(ImageView.ScaleType.FIT_START);
+        if(encodedImageString!=null && !encodedImageString.isEmpty())
+        {
+            String base=encodedImageString;
+            byte[] imageAsBytes = Base64.decode(base.getBytes(), Base64.DEFAULT);
+            ivsavedphoto.setImageBitmap(BitmapFactory.decodeByteArray(imageAsBytes, 0, imageAsBytes.length));
+            ivsavedphoto.setScaleType(ImageView.ScaleType.FIT_START);
+        }
         return ivsavedphoto;
     }
 

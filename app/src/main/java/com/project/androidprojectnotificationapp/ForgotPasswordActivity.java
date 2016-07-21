@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
+
 import com.project.Framework.Constants;
 import com.project.Framework.NotificationUtils;
 import com.project.Framework.SendMailTask;
@@ -81,6 +83,7 @@ public class ForgotPasswordActivity extends AppCompatActivity implements View.On
             {
                 // send email asynchronously to email address entered by user
                 new SendMailTask(ForgotPasswordActivity.this).execute(Constants.EMAIL_ADDRESS, Constants.PASSWORD, toEmailList, Constants.EMAIL_SUBJECT_FORGOT_PASSWORD, emailBody);
+                Toast.makeText(this,Constants.FORGOT_PASSWORD_EMAIL_SENT,Toast.LENGTH_LONG).show();
             }
             catch (Exception e)
             {
